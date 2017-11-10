@@ -1,4 +1,4 @@
-package edu.dlsu.mobapde.labdatabasephone;
+package edu.dlsu.mobapde.labdatabasekorean;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,16 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import edu.dlsu.mobapde.labdatabasephone.CursorRecyclerViewAdapter;
+import edu.dlsu.mobapde.labdatabasephone.Phone;
+import edu.dlsu.mobapde.labdatabasephone.PhonesAdapter;
+import edu.dlsu.mobapde.labdatabasephone.R;
+
 /**
  * Created by G301 on 11/9/2017.
  */
 
 public class PhonesAdapterSkeleton
-        extends CursorRecyclerViewAdapter<PhonesAdapterSkeleton.PhoneViewHolder> {
+        extends CursorRecyclerViewAdapter<PhonesAdapter.PhoneViewHolder> {
 
     private OnItemClickListener onItemClickListener;
 
-    public PhonesAdapterSkeleton(Context context, Cursor cursor) {
+    public PhonesAdapter(Context context, Cursor cursor) {
         super(context, cursor);
     }
 
@@ -44,7 +49,7 @@ public class PhonesAdapterSkeleton
     @Override
     public PhoneViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.list_item_phone, parent, false);
+                .inflate(R.layout.list_item_phone, parent, false);
         return new PhoneViewHolder(v);
     }
 
@@ -67,14 +72,3 @@ public class PhonesAdapterSkeleton
         public void onItemClick(long id);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-package edu.dlsu.mobapde.labdatabasephone;
+package edu.dlsu.mobapde.labdatabasephone.;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import edu.dlsu.mobapde.labdatabasephone.CursorRecyclerViewAdapter;
+import edu.dlsu.mobapde.labdatabasephone.Phone;
+import edu.dlsu.mobapde.labdatabasephone.R;
 
 /**
  * Created by G301 on 11/9/2017.
@@ -30,10 +34,12 @@ public class PhonesAdapter
         viewHolder.tvId.setText(id+"");
         viewHolder.tvManufacturer.setText(man);
 
+        // set the database id to the viewholder's itemView (the "whole row" view)
         viewHolder.itemView.setTag(id);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // pass id to caller
                 onItemClickListener.onItemClick((Long) v.getTag());
             }
         });
@@ -42,7 +48,7 @@ public class PhonesAdapter
     @Override
     public PhoneViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.list_item_phone, parent, false);
+                .inflate(R.layout.list_item_phone, parent, false);
         return new PhoneViewHolder(v);
     }
 
@@ -56,6 +62,7 @@ public class PhonesAdapter
         }
     }
 
+    // interface to be implemented to know if an item has been clicked or not
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
