@@ -34,7 +34,9 @@ public class ViewPhoneActivitySkeleton extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbHelper.removePhone(id);
+                // TODO delete record from db
+
+                finish();
             }
         });
 
